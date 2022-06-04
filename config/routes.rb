@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
  
   namespace :admin do
-    get 'genres/index'
-    get 'genres/:id/edit' => 'genres#edit' , as:'edit_genre'
-    get 'genres/new'
-    post 'genres' => 'genres#create'
-    
+    get 'items/index'
+    get 'items/new'
+    get 'items/show'
+    get 'items/edit'
+    resources :genres
   end
+  
+  
   namespace :public do
     get 'homes/top'
   end
