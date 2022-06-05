@@ -1,2 +1,42 @@
-<h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
+<div class="container px-5 px-sm-0 mt-5">
+    <div class="row">
+　　　<div class="p-1 w-25 bg-light text-dark text-center mb-5"><h4>商品一覧</h4></h4></div>
+    </div>
+
+<div class="w-auto my-3">
+      <table class="table table-secondary table-inverse">
+          <thead>
+            <tr>
+              <th style="width: 10%">商品ID</th>
+              <th style="width: 40%">商品名</th>
+              <th style="width: 10%">税抜価格</th>
+              <th style="width: 25%">ジャンル</th>
+              <th style="width: 15%">ステータス</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          
+         <tbody>
+           <tr>
+            <% @items.each do |item| %>
+            <!--<th><*%= link_to user_path(book.id) do %>-->
+            
+            <!--<+% end %></th>-->
+         
+             <td>
+             <%= item.name %>
+             </td>
+             <td>編集</td>
+
+             <!--<td><*%= link_to "編集", edit_genre_path(@genre.id) %></td>-->
+
+            </tr>
+            <% end %>
+            
+           </tbody>
+
+        </table>
+      
+      </div>
+      
+      </div>

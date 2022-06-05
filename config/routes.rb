@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
  
   namespace :admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
+    resources :items
     resources :genres
   end
   
   
-  namespace :public do
-    get 'homes/top'
-  end
+  # namespace :public do
+  #   resources :
+  #   root to:'homes#top'
+  # end
  
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
