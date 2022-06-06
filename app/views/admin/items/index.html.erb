@@ -1,6 +1,6 @@
 <div class="container px-5 px-sm-0 mt-5">
     <div class="row">
-　　　<div class="p-1 w-25 bg-light text-dark text-center mb-5"><h4>商品一覧</h4></h4></div>
+　　　<div class="p-1 w-auto bg-light text-dark text-center mb-5"><h4>　商品一覧　</h4></h4></div>
     </div>
 
 <div class="w-auto my-3">
@@ -18,11 +18,8 @@
           
          <tbody>
            <tr>
-            <% @items.each do |item| %>
-            <!--<th><*%= link_to user_path(book.id) do %>-->
+            <%= @items.each do |item| %>
             
-            <!--<+% end %></th>-->
-         
              <td>
              <%= item.name %>
              </td>
