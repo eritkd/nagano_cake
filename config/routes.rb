@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   end
   
   
-  # namespace :public do
-  #   resources :
-  #   root to:'homes#top'
-  # end
+  namespace :public do
+  end
+  
+
  
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -22,7 +22,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 
-  
+ get "/about" => "public/homes#about" ,as: 'about'
+ root to:'public/homes#top'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
