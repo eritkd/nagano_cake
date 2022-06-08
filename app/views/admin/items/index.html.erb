@@ -12,20 +12,19 @@
               <th style="width: 10%">税抜価格</th>
               <th style="width: 25%">ジャンル</th>
               <th style="width: 15%">ステータス</th>
-              <th colspan="3"></th>
             </tr>
           </thead>
           
          <tbody>
            <tr>
-            <%= @items.each do |item| %>
-            
+            <% @items.each do |item| %>
              <td>
-             <%= item.name %>
+             <th style="width: 10%"><%= item.id %></th>
+             </td>
+             <td>
+             <th style="width: 40%"><%= item.name %></th>
              </td>
              <td>編集</td>
-
-             <!--<td><*%= link_to "編集", edit_genre_path(@genre.id) %></td>-->
 
             </tr>
             <% end %>
