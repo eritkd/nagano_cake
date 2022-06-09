@@ -2,36 +2,78 @@
     <div class="row">
 　　　<div class="p-1 w-auto bg-light text-dark text-center mb-5"><h4>　商品一覧　</h4></h4></div>
     </div>
+    
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">商品ID</th>
+      <th scope="col">商品名</th>
+      <th scope="col">税抜価格</th>
+      <th scope="col">ジャンル</th>
+      <th scope="col">ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <% @items.each do |item| %>
+      <td>
+         <%= item.id %>
+      </td>
+      <td>
+         <%= item.name %>
+      </td>
+      <td>
+         <%= item.price %>
+      </td>
+      <td>
+         <%= item.genre_id %>
+      </td>
+      <td>
+         <%= item.is_active %>
+      </td>
+  
+    <% end %>
+    </tr>
+  </tbody>
+</table>
 
-<div class="w-auto my-3">
-      <table class="table table-secondary table-inverse">
-          <thead>
-            <tr>
-              <th style="width: 10%">商品ID</th>
-              <th style="width: 40%">商品名</th>
-              <th style="width: 10%">税抜価格</th>
-              <th style="width: 25%">ジャンル</th>
-              <th style="width: 15%">ステータス</th>
-            </tr>
-          </thead>
+<div class="my-3">
+      <!--<table class="table table-secondary table-inverse">-->
+      <!--    <thead>-->
+      <!--      <tr>-->
+      <!--        <th style="width: 10%">商品ID</th>-->
+      <!--        <th style="width: 40%">商品名</th>-->
+      <!--        <th style="width: 10%">税抜価格</th>-->
+      <!--        <th style="width: 15%">ジャンル</th>-->
+      <!--        <th style="width: 25%">ステータス</th>-->
+      <!--      </tr>-->
+      <!--    </thead>-->
           
-         <tbody>
-           <tr>
-            <% @items.each do |item| %>
-             <td>
-             <th style="width: 10%"><%= item.id %></th>
-             </td>
-             <td>
-             <th style="width: 40%"><%= item.name %></th>
-             </td>
-             <td>編集</td>
+      <!--   <tbody>-->
+      <!--     <tr>-->
+      <!--      <*% @items.each do |item| %>-->
+      <!--       <td>-->
+      <!--       <th style="width: 10%"><*%= item.id %></th>-->
+      <!--       </td>-->
+      <!--       <td>-->
+      <!--       <th style="width: 40%"><*%= item.name %></th>-->
+      <!--       </td>-->
+      <!--       <td>-->
+      <!--       <th style="width: 10%"><*%= item.price %></th>-->
+      <!--       </td>-->
+      <!--       <td>-->
+      <!--       <th style="width: 15%"><*%= item.genre_id %></th>-->
+      <!--       </td>-->
+      <!--       <td>-->
+      <!--       <th style="width: 15%"><*%= item.is_active %></th>-->
+      <!--       </td>-->
 
-            </tr>
-            <% end %>
+      <!--      </tr>-->
+      <!--      <*% end %>-->
             
-           </tbody>
+      <!--     </tbody>-->
 
-        </table>
+      <!--  </table>-->
       
       </div>
       
