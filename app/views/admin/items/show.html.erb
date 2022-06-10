@@ -4,24 +4,59 @@
     </div>
       
   <div class="row">
-    <div class="w-50 my-3">
-      <div class="col-6">
+    <div class="w-100 my-3">
+      <table>
+    <tr>
+        <td>
         <% if @item.image.attached? %>
   <%= image_tag @item.image, size: "300x300" %>
   <% else %>
-  <%= image_tag 'no_image', size: "300x300" %>
+  <%= image_tag 'no_image', size: "300x300" ,class: 'mr-5' %>
   <% end %>
+     </td>
+     <td>&nbsp;</td>
+  <!--   <td>-->
+  <!--    <div class="col d-flex align-items-center">-->
+  <!--<label class="col-sm-5 col-form-label">商品名</label>-->
+  <!--<*%= @item.name %>-->
+  <!--<br>-->
+  <!--<p></p>-->
+  <!--<label class="col-sm-5 col-form-label">商品説明</label>-->
+  <!--<*%= @item.introduction %>-->
+  <!--</div>-->
+  <!--    </td>-->
+  
+  <td valign="top">
+<table border=1 width=auto height=auto cellpadding=10>
+<tr>
+<td width=200>商品名</td>
+<td width=auto><%= @item.name %></td>
+</tr>
+<tr>
+<td width=200>商品説明</td>
+<td width=auto><%= @item.introduction %></td>
+</tr>
+<tr>
+<td width=200>ジャンル</td>
+<td width=auto><%= @item.genre_id %></td>
+</tr>
+<tr>
+<td width=200>税込価格<br>(税抜価格)</td>
+<td width=auto><%= @item.price %>円</td>
+</tr>
+<tr>
+<td width=200>販売ステータス</td>
+<td width=auto><%= @item.is_active %></td>
+</tr>
+</table>
+</td>
+      </table>
+      <div class="col text-center">
+      <%= link_to "　編集する　", edit_admin_item_path(@item.id) ,class: "btn btn-success"%>
       </div>
-      <div class="field">
-  <label class="col-sm-2 col-form-label">商品名</label>
-  <%= @item.name %>
-  </div>
-  <div class="field">
-  <label class="col-sm-2 col-form-label">商品説明</label>
-  <%= @item.introduction %>
-  </div>
+      </div>
+      </div>
+      </div>
       
-      </div>
-      </div>
-      </div>
       
+    

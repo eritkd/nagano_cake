@@ -2,37 +2,38 @@
     <div class="row">
 　　　<div class="p-1 w-auto bg-light text-dark text-center mb-5"><h4>　会員一覧　</h4></h4></div>
     </div>
-
+<div class="col text-center">
 <div class="w-75 my-3">
+      
       <table class="table table-secondary table-inverse">
           <thead>
             <tr>
-              <th style="width: 10%">商品ID</th>
-              <th style="width: 20%">商品名</th>
-              <th style="width: 30%">税抜価格</th>
-              <th style="width: 15%">ジャンル</th>
+              <th style="width: 10%">会員ID</th>
+              <th style="width: 20%">氏名</th>
+              <th style="width: 30%">メールアドレス</th>
+              <th style="width: 15%">ステータス</th>
               <th colspan="3"></th>
             </tr>
           </thead>
           
          <tbody>
            <tr>
-            <!--<*%= @items.each do |item| %>-->
+            <%= @customers.each do |customer| %>
             
              <td>
-             <!--<*%= item.name %>-->
+             <%= customer.name %>
              </td>
              <td>編集</td>
 
              <!--<td><*%= link_to "編集", edit_genre_path(@genre.id) %></td>-->
 
             </tr>
-            <!--<*% end %>-->
+            <% end %>
             
            </tbody>
 
         </table>
-      
+      </div>
       </div>
       
       </div>

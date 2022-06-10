@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
  
+  namespace :public do
+    get 'customers/show'
+    get 'customers/edit'
+  end
   namespace :admin do
     resources :items
     resources :genres
