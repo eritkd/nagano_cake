@@ -1,0 +1,79 @@
+<div class="container px-5 px-sm-0 mt-5">
+    <div class="row">
+　　　<div class="p-1 w-auto bg-light text-dark text-center mb-5"><h4>　注文履歴一覧　</h4></h4></div>
+    </div>
+    
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">購入日時</th></th>
+      <th scope="col">購入者</th>
+      <th scope="col">注文個数</th>
+      <th scope="col">注文ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <% @items.each do |item| %>
+      <td>
+         <%= item.id %>
+      </td>
+      <td>
+         <%= item.name %>
+      </td>
+      <td>
+         <%= item.price %>
+      </td>
+      <td>
+         <%= item.genre_id %>
+      </td>
+      <td>
+         <%= item.is_active %>
+      </td>
+  
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<div class="my-3">
+      <!--<table class="table table-secondary table-inverse">-->
+      <!--    <thead>-->
+      <!--      <tr>-->
+      <!--        <th style="width: 10%">商品ID</th>-->
+      <!--        <th style="width: 40%">商品名</th>-->
+      <!--        <th style="width: 10%">税抜価格</th>-->
+      <!--        <th style="width: 15%">ジャンル</th>-->
+      <!--        <th style="width: 25%">ステータス</th>-->
+      <!--      </tr>-->
+      <!--    </thead>-->
+          
+      <!--   <tbody>-->
+      <!--     <tr>-->
+      <!--      <*% @items.each do |item| %>-->
+      <!--       <td>-->
+      <!--       <th style="width: 10%"><*%= item.id %></th>-->
+      <!--       </td>-->
+      <!--       <td>-->
+      <!--       <th style="width: 40%"><*%= item.name %></th>-->
+      <!--       </td>-->
+      <!--       <td>-->
+      <!--       <th style="width: 10%"><*%= item.price %></th>-->
+      <!--       </td>-->
+      <!--       <td>-->
+      <!--       <th style="width: 15%"><*%= item.genre_id %></th>-->
+      <!--       </td>-->
+      <!--       <td>-->
+      <!--       <th style="width: 15%"><*%= item.is_active %></th>-->
+      <!--       </td>-->
+
+      <!--      </tr>-->
+      <!--      <*% end %>-->
+            
+      <!--     </tbody>-->
+
+      <!--  </table>-->
+      
+      </div>
+      
+      </div>
