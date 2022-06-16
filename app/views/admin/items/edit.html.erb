@@ -3,7 +3,7 @@
 　　　<div class="p-1 w-25 bg-light text-dark text-center mb-5"><h4>商品編集</h4></div>
     </div>
       
-<%= form_with model: @item do |f| %>
+<%= form_with model: @item,url: admin_item_path(@item.id),method: :patch do |f| %>
 
   <div class="field">
   <label class="col-sm-2 col-form-label">商品画像</label>
@@ -19,7 +19,7 @@
   </div>
   <div class="field">
   <label class="col-sm-2 col-form-label">ジャンル</label>
-  <!--<*%= form.select :genre_id, @genres.all{ |genre| [genre.id, genre.name, include_blank: "選択して下さい" } %>-->
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい"  %>
   </div>
   <div class="field">
   <label class="col-sm-2 col-form-label">税抜価格</label>
@@ -27,7 +27,8 @@
   </div>
   <div class="field">
   <label class="col-sm-2 col-form-label">販売ステータス</label>
-  <!--<*%= f.text_area :introduction %>-->
+  <label><%= f.radio_button :is_active, "true" ,checked: true %> 販売中 </label>
+<label><%= f.radio_button :is_active, "false" %> 販売停止中 </label>
   </div>
 <br>
   <div class="field">

@@ -20,7 +20,7 @@
          <%= item.id %>
       </td>
       <td>
-         <%= item.name %>
+         <%= link_to item.name,admin_item_path(item.id) %>
       </td>
       <td>
          <%= item.price %>
@@ -31,49 +31,14 @@
       <td>
          <%= item.is_active %>
       </td>
-  
+  </tr>
     <% end %>
-    </tr>
+    
   </tbody>
 </table>
 
 <div class="my-3">
-      <!--<table class="table table-secondary table-inverse">-->
-      <!--    <thead>-->
-      <!--      <tr>-->
-      <!--        <th style="width: 10%">商品ID</th>-->
-      <!--        <th style="width: 40%">商品名</th>-->
-      <!--        <th style="width: 10%">税抜価格</th>-->
-      <!--        <th style="width: 15%">ジャンル</th>-->
-      <!--        <th style="width: 25%">ステータス</th>-->
-      <!--      </tr>-->
-      <!--    </thead>-->
-          
-      <!--   <tbody>-->
-      <!--     <tr>-->
-      <!--      <*% @items.each do |item| %>-->
-      <!--       <td>-->
-      <!--       <th style="width: 10%"><*%= item.id %></th>-->
-      <!--       </td>-->
-      <!--       <td>-->
-      <!--       <th style="width: 40%"><*%= item.name %></th>-->
-      <!--       </td>-->
-      <!--       <td>-->
-      <!--       <th style="width: 10%"><*%= item.price %></th>-->
-      <!--       </td>-->
-      <!--       <td>-->
-      <!--       <th style="width: 15%"><*%= item.genre_id %></th>-->
-      <!--       </td>-->
-      <!--       <td>-->
-      <!--       <th style="width: 15%"><*%= item.is_active %></th>-->
-      <!--       </td>-->
-
-      <!--      </tr>-->
-      <!--      <*% end %>-->
-            
-      <!--     </tbody>-->
-
-      <!--  </table>-->
+      
       
       </div>
       
