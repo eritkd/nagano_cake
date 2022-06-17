@@ -13,9 +13,13 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
   namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
+    get 'customers/:id/show' => 'customers#show'
+    get 'customers/:id/edit' => 'customers#edit'
+    get 'customers/:id/unsubscribe' => 'customers#unsubscribe'
+    patch 'customer/:id/withdraw' => 'customers#withdraw'
+    put 'withdraw/:id' => 'customers#withdraw'
   end
+  
   namespace :admin do
     resources :items
     resources :genres

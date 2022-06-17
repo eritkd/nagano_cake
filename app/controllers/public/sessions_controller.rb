@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -17,6 +17,15 @@ class Public::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  
+  def reject_inactive_user
+    @customer = Customer.find(params[:id])
+    if @customer
+      if @customer.valid_password?(params[:mail][:password]) && !@customer.is_valid
+        redirect_to new_user_session_path
+      end
+    end
+  end
 
   protected
   def customer_state
