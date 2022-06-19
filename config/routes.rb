@@ -1,23 +1,26 @@
 Rails.application.routes.draw do
  
   namespace :public do
+    get 'cart_items/index'
+  end
+  namespace :public do
+    resources :items
     get 'orders/new'
     get 'orders/confirm'
     get 'orders/complete'
     get 'orders/index'
     get 'orders/show'
-  end
-  get 'order_details/show'
-  get 'order_details/edit'
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'customers/:id/show' => 'customers#show'
-    get 'customers/:id/edit' => 'customers#edit'
+    resources :customers
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe'
     patch 'customer/:id/withdraw' => 'customers#withdraw'
     put 'withdraw/:id' => 'customers#withdraw'
+  end
+  
+  get 'order_details/show'
+  get 'order_details/edit'
+  
+  namespace :admin do
+    get 'homes/top'
   end
   
   namespace :admin do
