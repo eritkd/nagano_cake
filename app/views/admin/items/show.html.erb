@@ -29,7 +29,7 @@
 </tr>
 <tr>
 <td width=200>ジャンル</td>
-<td width=auto><%= @item.genre_id %></td>
+<td width=auto><%= @item.genre.name %></td>
 </tr>
 <tr>
 <td width=200>税込価格<br>(税抜価格)</td>
@@ -37,7 +37,7 @@
 </tr>
 <tr>
 <td width=200>販売ステータス</td>
-<td width=auto><%= @item.is_active %></td>
+<td width=auto><%= @item.is_active ? '販売中':'販売停止中' %></td>
 </tr>
 </table>
 </div>
