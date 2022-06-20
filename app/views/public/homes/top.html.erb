@@ -2,19 +2,25 @@
  <center>
 <div class="w-75">
     <div class="row">
-        <span class="border border-dark">
-            <span>ようこそ、ながのCAKEへ！<br>
+        <div class="border border-dark my-5">
+            <span><br>ようこそ、ながのCAKEへ！<br>
             このサイトは、ケーキ販売のECサイトになります。<br>
             会員でない方も商品の閲覧はできますが、<br>
-            購入には会員登録が必要になります。
+            購入には会員登録が必要になります。<br><br>
             </span>
-        </span>
     </div>
-    
-         
-         
-     </center>
-      
-      </div>
-      
+    </div>
+    </div>
+    </center>
+    <div class="w-75">
+    <div class="row">
+            <h2>新着商品</h2>
+            
+            <% @items.first(4).each do |item| %>
+            <%= image_tag item.get_image, size:'100x100' %>
+            <p><%= item.name %></p>
+            <% end %>
+    </div>
+    </div>
+    </div>
       </div>

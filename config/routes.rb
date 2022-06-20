@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     get 'orders/complete'
     get 'orders/index'
     get 'orders/show'
+  end
+  
+  namespace :public do
     resources :customers
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe'
     patch 'customer/:id/withdraw' => 'customers#withdraw'
@@ -29,9 +32,6 @@ Rails.application.routes.draw do
     resources :customers
   end
   
-  
-  namespace :public do
-  end
   
 
  
