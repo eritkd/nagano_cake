@@ -29,55 +29,95 @@
           <% if admin_signed_in? %>
           
 <li class='nav-item'>
-<!--<*%= link_to user_path(current_user.id) ,class: 'nav-link text-light' do %>-->
-<span class='post-btn-text'>Home</span>
-<!--<*% end %>-->
+<%= link_to admin_items_path ,class: 'nav-link text-light' do %>
+<button type="button" class="btn btn-outline-secondary">商品一覧</button>
+<% end %>
 </li>
           
 <li class="nav-item">
-<!--<*%= link_to users_path, class: 'nav-link text-light post-btn' do %>-->
-<span class='post-btn-text'>Users</span>
-<!--<*% end %>-->
+<%= link_to admin_customers_path, class: 'nav-link text-light post-btn' do %>
+<button type="button" class="btn btn-outline-secondary">会員一覧</button>
+<% end %>
 </li>
 
 <li class="nav-item">
 <!--<*%= link_to books_path,class: 'nav-link text-light' do %>-->
-<span class='post-btn-text'>Books</span>
+<button type="button" class="btn btn-outline-secondary">注文履歴一覧</button>
 <!--<*% end %>-->
 </li>
 
 <li class="nav-item">
-<!--<*%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>-->
-<span class='post-btn-text'>Log out</span>
+<%= link_to admin_genres_path, class: 'nav-link text-light' do %>
+<button type="button" class="btn btn-outline-secondary">ジャンル一覧</button>
+<% end %>
+</li>
+
+<li class="nav-item">
+<%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+<button type="button" class="btn btn-outline-secondary">ログアウト</button>
+<% end %>
+</li>
+          
+          <% else if customer_signed_in? %>
+          
+          <li class='nav-item'>
+<%= link_to public_customer_path(current_customer) ,class: 'nav-link text-light' do %>
+<button type="button" class="btn btn-outline-secondary">マイページ</button>
+<% end %>
+</li>
+          
+<li class="nav-item">
+<%= link_to admin_customers_path, class: 'nav-link text-light post-btn' do %>
+<button type="button" class="btn btn-outline-secondary">商品一覧</button>
+<% end %>
+</li>
+
+<li class="nav-item">
+<!--<*%= link_to books_path,class: 'nav-link text-light' do %>-->
+<button type="button" class="btn btn-outline-secondary">注文履歴一覧</button>
 <!--<*% end %>-->
 </li>
+
+<li class="nav-item">
+<%= link_to admin_genres_path, class: 'nav-link text-light' do %>
+<button type="button" class="btn btn-outline-secondary">ジャンル一覧</button>
+<% end %>
+</li>
+
+<li class="nav-item">
+<%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+<button type="button" class="btn btn-outline-secondary">ログアウト</button>
+<% end %>
+</li>
+          
           
           <% else %>
           
 <li class="nav-item">
-<!--<*%= link_to root_path, class: 'nav-link text-light post-btn' do %>-->
-<span class='post-btn-text'>About</span>
-<!--<*% end %>-->
+<%= link_to about_path, class: 'nav-link text-light post-btn' do %>
+<button type="button" class="btn btn-outline-secondary">About</button>
+<% end %>
 </li>
           
 <li class="nav-item">
-<!--<*%= link_to about_path,class: 'nav-link text-light' do %>-->
-<span class='post-btn-text'>商品一覧</span>
-<!--<*% end %>-->
+<%= link_to admin_items_path, class: 'nav-link text-light' do %>
+<button type="button" class="btn btn-outline-secondary">商品一覧</button>
+<% end %>
 </li>
 
 <li class="nav-item">
-<!--<*%= link_to new_user_registration_path,class: 'nav-link text-light' do %>-->
-<span class='post-btn-text'>新規登録</span>
-<!--<*% end %>-->
+<%= link_to new_customer_registration_path,class: 'nav-link text-light' do %>
+<button type="button" class="btn btn-outline-secondary">新規登録</button>
+<% end %>
 </li>
 
 <li class="nav-item">
-<!--<*%= link_to new_user_session_path,class: 'nav-link text-light' do %>-->
-<span class='post-btn-text'>ログイン</span>
-<!--<*% end %>-->
+<%= link_to new_customer_session_path,class: 'nav-link text-light' do %>
+<button type="button" class="btn btn-outline-secondary">ログイン</button>
+<% end %>
 </li>
           
+          <% end %>
           <% end %>
           
           </ul>
