@@ -4,39 +4,42 @@
     </div>
       
   <div class="row">
-    <div class="w-50 my-3">
+    <div class="w-75 my-3">
 
-<h3><b>登録情報</b></h3>　<%= link_to "　編集する　", edit_public_customer_path(@customer.id) ,class: "btn btn-success"%>
+<h3 style="display:inline"><b>登録情報</b></h3>
+<div class="my-10 text-nowrap"><%= link_to "　編集する　", edit_public_customer_path(@customer.id) ,class: "btn btn-success"%></div>
+<br>
       <table border=1 width=auto height=auto cellpadding=10>
 <tr>
 <td width=200>氏名</td>
-<td width=auto><%= @customer.first_name %></td>
+<td width=600><%= @customer.last_name %><%= @customer.first_name %></td>
 </tr>
 <tr>
 <td width=200>カナ</td>
-<td width=auto><%= @customer.first_name_kana %></td>
+<td width=600><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
 </tr>
 <tr>
 <td width=200>郵便番号</td>
-<td width=auto><%= @customer.postal_code %></td>
+<td width=600><%= @customer.postal_code %></td>
 </tr>
 <tr>
 <td width=200>住所</td>
-<td width=auto><%= @customer.address %>円</td>
+<td width=600><%= @customer.address %></td>
 </tr>
 <tr>
 <td width=200>電話番号</td>
-<td width=auto><%= @customer.telephone_number %></td>
+<td width=600><%= @customer.telephone_number %></td>
 </tr>
 <tr>
 <td width=200>メールアドレス</td>
-<td width=auto><%= @customer.email %></td>
+<td width=600><%= @customer.email %></td>
 </tr>
 </table>
 </td>
       </table>
-      <!--<h3><b>配送先</b></h3>　<+%= link_to "　一覧を見る　", edit_adimin_customer_path(@customer.id) ,class: "btn btn-success"%>-->
-      <!--<h3><b>注文履歴</b></h3>　<*%= link_to "　一覧を見る　", edit_adomin_customer_path(@customer.id) ,class: "btn btn-success"%>-->
+      <br>
+      <h3><b>配送先</b></h3>　<+%= link_to "　一覧を見る　", edit_adimin_customer_path(@customer.id) ,class: "btn btn-success"%>
+      <h3><b>注文履歴</b></h3>　<*%= link_to "　一覧を見る　", edit_adomin_customer_path(@customer.id) ,class: "btn btn-success"%>
       </div>
       </div>
       

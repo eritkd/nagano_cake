@@ -7,6 +7,12 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id]) 
   end
   
+  def update
+    customer = Customer.find(params[:id])
+    customer.update(customer_params)
+    redirect_to public_customer_path(customer.id)
+  end
+
   def unsubscribe
     @customer = Customer.find(params[:id])
   end
@@ -16,6 +22,13 @@ class Public::CustomersController < ApplicationController
     @customer.update(is_valid: false)
     reset_session
     redirect_to root_path
+  end
+  
+  def destroy
+      @customer = Customer.find(params[:id]) 
+      @customer.destroy
+      flash[:notice] = 'ユーザーを削除しました。'
+      redirect_to :root 
   end
   
   private
