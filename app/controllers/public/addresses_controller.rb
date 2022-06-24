@@ -7,10 +7,16 @@ class Public::AddressesController < ApplicationController
   def create
     address = Address.new(address_params)
     address.save
-    redirect_to public_address_index_path
+    redirect_to public_addresses_path
   end
     
   def edit
+  end
+  
+  def destroy
+  　address = Address.find(params[:id])
+  　address.destroy
+  　redirect_to public_addresses_path
   end
   
   private

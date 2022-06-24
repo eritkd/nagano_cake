@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
  
   namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
+    resources :addresses
   end
   namespace :public do
     get 'cart_items/index'
