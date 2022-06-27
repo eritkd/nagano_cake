@@ -10,19 +10,22 @@
       <div class="row justify-content-center">
         <div class="col-md-12">
 
-<%= form_with model:@customer do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+<%= form_with model: @customer ,url: admin_customer_path(@customer.id),method: :patch do |f| %>
+  
   <div class="field">
-   <label class="col-sm-2 col-form-label">名前</label><label class="col-sm-1 col-form-label text-right">(姓)</label>
+   <label class="col-sm-3 col-form-label">会員ID</label>
+    <%= @customer.id %>
+  </div>
+  
+  <div class="field">
+   <label class="col-sm-3 col-form-label">名前</label>
     <%= f.text_field :last_name, autofocus: true, autocomplete: "email" %>
-    <label class="col-sm-1 col-form-label text-right">(名)</label>
     <%= f.text_field :first_name, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-   <label class="col-sm-2 col-form-label">フリガナ</label><label class="col-sm-1 col-form-label text-right">(セイ)</label>
+   <label class="col-sm-3 col-form-label">フリガナ</label>
     <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "email" %>
-    <label class="col-sm-1 col-form-label text-right">(メイ)</label>
     <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -48,16 +51,17 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+<div class="field">
+   <label class="col-sm-3 col-form-label">会員ステータス</label>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
 
 <div class="actions">
     <label class="col-sm-3 col-form-label"></label>
-    <%= f.submit "　新規登録　" , class: "btn btn-success mt-4 px-5" %>
+    <%= f.submit "　変更を保存　" , class: "btn btn-success mt-4 px-5" %>
   </div>
 <% end %>
-<br><br>
- <div class="p-1 w-25 bg-light text-dark text-center mb-3"><h4>既に登録済みの方</h4></div>
- <span class="col-sm-3 col-form-label"><%= link_to "こちら", "public/shared/links" %>からログインしてください</span>
-
+<br>
 </div>
 </div>
 </div>
