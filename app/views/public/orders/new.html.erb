@@ -1,2 +1,32 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<div class="container px-5 px-sm-0 mt-5">
+    <div class="row">
+　　　<div class="p-1 w-25 bg-light text-dark text-center mb-5"><h4> 注文情報入力 </h4></div>
+    </div>
+      <div class="w-50 my-3">
+    <h4><strong>支払方法</strong></h4>
+     <%= form_with(model: @order,url: public_orders_path, local:true) do |form| %>
+     <div class="done">
+    <div>
+      <%= form.radio_button :done, true %>
+      <%= form.label :done, 'クレジットカード', value: true %>
+    </div>
+    <div>
+      <%= form.radio_button :done, false %>
+      <%= form.label :done, '銀行振込', value: false %>
+    </div>
+    <h4><strong>お届け先</strong></h4>
+    <div>
+      <%= form.radio_button :done, true %>
+      <%= form.label :done, 'クレジットカード', value: true %>
+    </div>
+    <div>
+      <%= form.radio_button :done, false %>
+      <%= form.label :done, '銀行振込', value: false %>
+    </div>
+  </div>
+<% end %>
+      
+      </div>
+      
+      </div>
+      

@@ -6,11 +6,9 @@ Rails.application.routes.draw do
   end
   namespace :public do
     resources :items
-    get 'orders/new'
+    resources :orders
     get 'orders/confirm'
     get 'orders/complete'
-    get 'orders/index'
-    get 'orders/show'
   end
   
   namespace :public do
