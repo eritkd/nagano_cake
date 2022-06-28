@@ -19,7 +19,7 @@ class Public::CustomersController < ApplicationController
   
   def withdraw
     @customer = Customer.find(params[:id])
-    @customer.update(is_valid: false)
+    @customer.update(is_deleted: false)
     reset_session
     redirect_to root_path
   end
@@ -34,7 +34,7 @@ class Public::CustomersController < ApplicationController
   private
   
   def customer_params
-    params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,:postal_code,:address,:telephone_number,:email)
+    params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,:postal_code,:address,:telephone_number,:email,:is_active)
   end
   def genre_params
     params.require(:genre).permit(:name)

@@ -30,7 +30,7 @@
        <td>
         <%= customer.email %>
        </td>
-       <td></td>
+       <td><%= customer.is_active ? '有効':'退会済み' %></td>
  
 </tr>
       <% end %>

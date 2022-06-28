@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
+    @customer = Customer.find(params[:id])
   end
 
   def confirm
@@ -14,4 +15,10 @@ class Public::OrdersController < ApplicationController
 
   def show
   end
+
+private
+  def customer_params
+    params.require(:customer).permit(:last_name,:first_name,:postal_code,:address)
+  end
+
 end

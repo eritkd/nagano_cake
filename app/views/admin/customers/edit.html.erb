@@ -53,7 +53,8 @@
 
 <div class="field">
    <label class="col-sm-3 col-form-label">会員ステータス</label>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <label><%= f.radio_button :is_active, "true" ,checked: true %> 有効 </label>
+<label><%= f.radio_button :is_active, "false" %> 退会済み </label>
   </div>
 
 <div class="actions">

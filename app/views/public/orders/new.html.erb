@@ -16,12 +16,13 @@
     </div>
     <h4><strong>お届け先</strong></h4>
     <div>
-      <%= form.radio_button :done, true %>
-      <%= form.label :done, 'クレジットカード', value: true %>
+      <%= form.radio_button :done, 1 %>
+      <%= form.label :done, 'ご自身の住所', value: 1 %>
+      <span><%= @customer.postal_code %> <%= @customer.address %></span>
     </div>
     <div>
       <%= form.radio_button :done, false %>
-      <%= form.label :done, '銀行振込', value: false %>
+      <%= form.label :done, '登録住所から選択', value: 2 %>
     </div>
   </div>
 <% end %>

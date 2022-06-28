@@ -1,0 +1,6 @@
+ja:
+  enums:
+    customer:
+      is_active:
+        true: "有効"
+        false: "退会済み"

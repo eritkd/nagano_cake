@@ -3,19 +3,13 @@ Rails.application.routes.draw do
   namespace :public do
     resources :addresses
     resources :cart_items
-  end
-  namespace :public do
     resources :items
     resources :orders
     get 'orders/confirm'
     get 'orders/complete'
-  end
-  
-  namespace :public do
     resources :customers
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe'
-    patch 'customer/:id/withdraw' => 'customers#withdraw'
-    put 'withdraw/:id' => 'customers#withdraw'
+    patch 'customers/:id/withdrawal' => 'customers#withdrawal'
   end
   
   get 'order_details/show'
@@ -23,9 +17,6 @@ Rails.application.routes.draw do
   
   namespace :admin do
     get 'homes/top'
-  end
-  
-  namespace :admin do
     resources :items
     resources :genres
     resources :customers
