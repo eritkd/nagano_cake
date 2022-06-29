@@ -1,16 +1,22 @@
 class Public::CartItemsController < ApplicationController
   def index
-    @cart_items = CartItem.all
+    @customer = current_customer
+    @cart_items = @customer.cart_items
   end
   
   def new
     @cart_item = CartItem.new
+    @customer = current_customer
   end
   
   def create
     cart_item = CartItem.new(cart_item_params)
-    cart_item.save
+    cart_item.customer_id = current_customer.id
+    if cart_item.save
+    redirect_to public_cart_items_path
+    else
     redirect_to public_items_path
+    end
   end
   
   def destroy
@@ -23,7 +29,7 @@ class Public::CartItemsController < ApplicationController
   private
   
   def cart_item_params
-      params.require(:cart_item).permit(:item_id, :amount, :name)
+      params.require(:cart_item).permit(:item_id, :amount, :name, :image, :price)
   end
   
 end

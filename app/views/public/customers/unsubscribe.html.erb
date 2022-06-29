@@ -7,6 +7,6 @@
   </div>
   <div>
     <%= link_to '退会しない', public_customer_path(current_customer) ,class: "btn btn-primary" %>
-    <%= link_to "退会する", public_path(@customer.id), method: :patch ,class: "btn btn-danger" %>
+    <%= link_to "退会する", public_customer_path(@customer.id), method: :delete ,class: "btn btn-danger" %>
   </div></center>
 </div>

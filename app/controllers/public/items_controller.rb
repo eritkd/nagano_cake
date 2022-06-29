@@ -1,6 +1,8 @@
 class Public::ItemsController < ApplicationController
   def index
     @items = Item.all
+    @posts = Item.all.page(params[:page]).per(8) 
+    
   end
 
   def show
@@ -10,14 +12,18 @@ class Public::ItemsController < ApplicationController
   
   def create
     cart_item = CartItem.new(cart_item_params)
-    cart_item.save
-    redirect_to public_item_path
+    @cart_item.customer_id = current_customer.id
+    if cart_item.save
+    redirect_to public_cart_items_path
+    else
+    redirect_to public_items_path
+    end
   end
   
   private
   
   def cart_item_params
-      params.require(:cart_item).permit(:item_id, :amount)
+      params.require(:cart_item).permit(:item_id, :amount, :image, :price)
   end
   
   def item_params
