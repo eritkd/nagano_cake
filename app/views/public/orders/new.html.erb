@@ -2,7 +2,7 @@
     <div class="row">
 　　　<div class="p-1 w-25 bg-light text-dark text-center mb-5"><h4> 注文情報入力 </h4></div>
     </div>
-      <div class="w-50 my-3">
+      <div class="w-100 my-3">
     <h4><strong>支払方法</strong></h4>
      <%= form_with(model: @order,url: public_orders_path, local:true) do |form| %>
      <div class="done">
@@ -14,17 +14,33 @@
       <%= form.radio_button :done, false %>
       <%= form.label :done, '銀行振込', value: false %>
     </div>
+    </div>
     <h4><strong>お届け先</strong></h4>
     <div>
       <%= form.radio_button :done, 1 %>
       <%= form.label :done, 'ご自身の住所', value: 1 %>
-      <span><%= @customer.postal_code %> <%= @customer.address %></span>
+      <div class="mb-3">&emsp;<%= @customer.postal_code %> <%= @customer.address %></div>
     </div>
     <div>
-      <%= form.radio_button :done, false %>
+      <%= form.radio_button :done, 2 %>
       <%= form.label :done, '登録住所から選択', value: 2 %>
     </div>
+      <%= form.radio_button :done, 3 %>
+      <%= form.label :done, '新しいお届け先', value: 2 %>
+      
+      <div class="field">
+   <label class="col-sm-3 col-form-label">郵便番号(ハイフンなし)</label>
+    <%= form.text_field :postal_code %>
   </div>
+  
+  <div class="field">
+   <label class="col-sm-3 col-form-label">住所</label>
+    <%= form.text_field :address %>
+  </div>
+  
+  <%= form.submit "　確認画面へ　" , class: "btn btn-primary mt-4" %> 
+  
+  
 <% end %>
       
       </div>
