@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     resources :addresses
     resources :cart_items
     resources :items
-    resources :orders
-    get 'orders/confirm'
+    resources :orders, only: [:new, :create, :index, :show]
+    get 'orders/confirm' => 'orders#confirm'
+    post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete'
     resources :customers
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe'
@@ -31,6 +32,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
 
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  registrations: "admin/registrations",
   sessions: "admin/sessions"
 }
 
