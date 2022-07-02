@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'orders/confirm' => 'orders#confirm'
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete'
-    resources :orders, only: [:new, :create, :index, :show]
+    resources :orders, only: [:new, :create, :index, :show, :destroy]
     resources :customers
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe'
     patch 'customers/:id/withdrawal' => 'customers#withdrawal'

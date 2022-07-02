@@ -8,7 +8,7 @@ class Public::OrdersController < ApplicationController
     order = Order.new(order_params)
     order.customer_id = current_customer.id
     if order.save
-      redirect_to public_orders_confirm_path
+      redirect_to public_orders_complete_path
     else
       redirect_to public_items_path
     end
@@ -16,6 +16,8 @@ class Public::OrdersController < ApplicationController
     
 
   def confirm
+    @customer = current_customer
+    @cart_items = @customer.cart_items
     @order = Order.new(order_params)
     @address = Address.find(params[:order][:address_id])
     @order.postal_code = @address.postal_code
@@ -28,6 +30,8 @@ end
   end
 
   def index
+    @orders = Order.all
+    
   end
 
   def show
@@ -36,6 +40,12 @@ end
     @order.address = current_customer.address
     @order.name = current_customer.first_name + current_customer.last_name
     binding.pry 
+  end
+  
+  def destroy
+    order = Order.find(params[:id])
+    order.destroy
+    redirect_to public_items_path
   end
 
 private
