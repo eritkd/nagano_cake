@@ -32,7 +32,7 @@ devise_for :customers,skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
 
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+devise_for :admin, skip: [:passwords] ,controllers: {
   registrations: "admin/registrations",
   sessions: "admin/sessions"
 }

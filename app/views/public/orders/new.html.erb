@@ -17,16 +17,16 @@
     </div>
     <h4><strong>お届け先</strong></h4>
     <div>
-      <%= f.radio_button :done, 1 %>
-      <%= f.label :done, 'ご自身の住所', value: 1 %>
+      <%= f.radio_button :select_address, 1 %>
+      <%= f.label :select_address, 'ご自身の住所', value: 1 %>
       <div class="mb-3">&emsp;<%= @customer.postal_code %> <%= @customer.address %></div>
     </div>
     <div>
-      <%= f.radio_button :done, 2 %>
-      <%= f.label :done, '登録住所から選択', value: 2 %>
+      <%= f.radio_button :select_address, 2 %>
+      <%= f.label :select_address, '登録住所から選択', value: 2 %>
       <div class="mb-3">&emsp;<%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %></div>
-      <%= f.radio_button :done, 3 %>
-      <%= f.label :done, '新しいお届け先', value: 2 %>
+      <%= f.radio_button :select_address, 3 %>
+      <%= f.label :select_address, '新しいお届け先', value: 3 %>
       
       <div class="field">
    <label class="col-sm-3 col-form-label">郵便番号(ハイフンなし)</label>
