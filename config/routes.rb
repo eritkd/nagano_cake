@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   namespace :public do
     resources :addresses
     resources :cart_items
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :items
-    resources :orders, only: [:new, :create, :index, :show]
     get 'orders/confirm' => 'orders#confirm'
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete'
+    resources :orders, only: [:new, :create, :index, :show]
     resources :customers
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe'
     patch 'customers/:id/withdrawal' => 'customers#withdrawal'

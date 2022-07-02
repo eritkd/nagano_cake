@@ -4,7 +4,7 @@
     </div>
       <div class="w-100 mb-3">
     <h4><strong>支払方法</strong></h4>
-     <%= form_with(model: @order,url: public_orders_path, local:true, method: :post) do |f| %>
+     <%= form_with(model: @order,url: public_orders_confirm_path, local:true, method: :post) do |f| %>
      <div class="done">
     <div>
      <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
