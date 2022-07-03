@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get 'order_details/edit'
   
   namespace :admin do
-    get 'homes/top'
     resources :items
     resources :genres
     resources :customers
@@ -38,6 +37,7 @@ devise_for :admin, skip: [:passwords] ,controllers: {
 }
 
 
+ get "/admin" => "admin/homes#top" ,as: 'admin_top'
  get "/about" => "public/homes#about" ,as: 'about'
  root to:'public/homes#top'
   

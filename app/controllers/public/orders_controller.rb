@@ -30,8 +30,7 @@ class Public::OrdersController < ApplicationController
     @order.name = @address.name
     else params[:order][:select_address] == "3"
     end
-    
-end
+  end
 
 
   def complete
