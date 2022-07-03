@@ -6,6 +6,10 @@ class Item < ApplicationRecord
      
      enum item_method: { on_sale: true, stop_selling: false }
      
+     def with_tax_price
+    (price * 1.1).floor
+    end
+     
        def get_image
     if image.attached?
       image

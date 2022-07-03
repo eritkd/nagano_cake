@@ -2,8 +2,8 @@ Rails.application.routes.draw do
  
   namespace :public do
     resources :addresses
-    resources :cart_items
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items
     resources :items
     get 'orders/confirm' => 'orders#confirm'
     post 'orders/confirm' => 'orders#confirm'
