@@ -8,6 +8,7 @@ class Public::OrdersController < ApplicationController
     order = Order.new(order_params)
     order.customer_id = current_customer.id
     if order.save
+      current_customer.cart_items.destroy_all
       redirect_to public_orders_complete_path
     else
       redirect_to public_items_path
