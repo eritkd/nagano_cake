@@ -7,7 +7,6 @@ class Public::OrdersController < ApplicationController
   def create
     order = Order.new(order_params)
     order.customer_id = current_customer.id
-    binding.pry
     if order.save
       current_customer.cart_items.each do |item|
         @order_detail = OrderDetail.new
@@ -68,7 +67,7 @@ private
     params.require(:order).permit(:customer_id,:postal_code,:address,:name,:postage,:payment,:payment_method,:cart_item_id)
   end
   
-  def order_detail
+  def order_detail_params
     params.require(:order_detail).permit(:items_id,:order_id,:price,:amount)
   end
 
