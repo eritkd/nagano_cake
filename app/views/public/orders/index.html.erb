@@ -25,16 +25,18 @@
        <%= f.created_at.strftime('%Y/%m/%d') %>
       </td>
       <td>
-       <%= f.order.postal_code %><%= f.order.address %><%= f.order.name %>
+       <span>〒</span><%= f.order.postal_code %><br>
+       <%= f.order.address %><br>
+       <%= f.order.name %>
       </td>
       <td>
          <%= f.item.name %>
       </td>
       <td>
-      <!--<*%= link_to "表示する", public_order_path(@order.id), class: "btn btn-success" %>-->
+      <%= f.order.payment + f.order.postage %><span>円</span>
       </td>
       <td width="150">
-       <!--<*%= link_to "sakujo", public_order_path(order.id), method: :delete, class: "btn btn-danger" %>-->
+       <!--<*%= link_to "詳細", public_order_detail_path(OrderDetail.id), class: "btn btn-danger" %>-->
       </td>
   </tr>
     <% end %>
