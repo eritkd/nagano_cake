@@ -20,14 +20,15 @@
   </thead>
   <tbody>
     <tr>
-        <% @orders.each do |f| %>
+        <% @order_details.each do |f| %>
         <td>
        <%= f.created_at.strftime('%Y/%m/%d') %>
       </td>
       <td>
-       <%= f.postal_code %><%= f.address %><%= f.name %>
+       <%= f.order.postal_code %><%= f.order.address %><%= f.order.name %>
       </td>
       <td>
+         <%= f.item.name %>
       </td>
       <td>
       <!--<*%= link_to "表示する", public_order_path(@order.id), class: "btn btn-success" %>-->
@@ -40,6 +41,7 @@
     
   </tbody>
 </table>
+
 
 </div>
 </div>
